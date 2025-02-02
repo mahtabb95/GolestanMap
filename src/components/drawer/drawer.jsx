@@ -286,7 +286,45 @@ export default function PersistentDrawerRight() {
   const handleDrawerClose = () => {
     setOpen(false);
   };
-
+  const myDrawer = (
+    <div>
+       <DrawerHeader sx={{height:89}}>
+          <IconButton onClick={handleDrawerClose}>
+            {theme.direction === 'rtl' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
+          </IconButton>
+        </DrawerHeader>
+        <Divider />
+        <List >
+          <ListItem disablePadding>
+              <ListItemButton>
+                <ListItemIcon>
+                 <DashboardIcon />
+                </ListItemIcon>
+                 <ListItemText className="text-end py-1" primary={"داشبورد"} />
+              </ListItemButton>
+          </ListItem>
+          <Divider />
+          <ListItem disablePadding>
+              <ListItemButton>
+                <ListItemIcon>
+                 <FormatListBulletedIcon />
+                </ListItemIcon>
+                 <ListItemText className="text-end py-1" primary={"لیست سفارشات"} />
+              </ListItemButton>
+          </ListItem>
+          <Divider />
+          <ListItem disablePadding>
+              <ListItemButton>
+                <ListItemIcon>
+                 <CloudUploadIcon />
+                </ListItemIcon>
+                 <ListItemText className="text-end" primary={"آپلود فایل اکسل"} />
+              </ListItemButton>
+          </ListItem>
+          <Divider />
+        </List>
+    </div>
+  )
   return (
     <Box sx={{ display: 'flex' }}>
       <CssBaseline />
@@ -323,41 +361,7 @@ export default function PersistentDrawerRight() {
         anchor="right"
         open={open}
       >
-        <DrawerHeader sx={{height:89}}>
-          <IconButton onClick={handleDrawerClose}>
-            {theme.direction === 'rtl' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
-          </IconButton>
-        </DrawerHeader>
-        <Divider />
-        <List >
-          <ListItem disablePadding>
-              <ListItemButton>
-                <ListItemIcon>
-                 <DashboardIcon />
-                </ListItemIcon>
-                 <ListItemText className="text-end py-1" primary={"داشبورد"} />
-              </ListItemButton>
-          </ListItem>
-          <Divider />
-          <ListItem disablePadding>
-              <ListItemButton>
-                <ListItemIcon>
-                 <FormatListBulletedIcon />
-                </ListItemIcon>
-                 <ListItemText className="text-end py-1" primary={"لیست سفارشات"} />
-              </ListItemButton>
-          </ListItem>
-          <Divider />
-          <ListItem disablePadding>
-              <ListItemButton>
-                <ListItemIcon>
-                 <CloudUploadIcon />
-                </ListItemIcon>
-                 <ListItemText className="text-end" primary={"آپلود فایل اکسل"} />
-              </ListItemButton>
-          </ListItem>
-          <Divider />
-        </List>
+       {myDrawer}
       </Drawer>
     </Box>
   );
